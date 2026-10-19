@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Bonfire Tattoos</title>
+    <meta name="description" content="Publica tatuajes en la web de Bonfire Tattoos.">
+    <meta name="robots" content="noindex">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Bonfire">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="stylesheet" href="css/app.css?v=f3309cf">
+</head>
+<body>
+
+<section class="vista" id="conectar" hidden>
+    <div class="conectar">
+        <img class="conectar__icono" src="icons/icon-192.png" width="72" height="72" alt="">
+        <h1 class="titulo-grande">Bonfire Tattoos</h1>
+        <p class="nota">Para publicar en la web, pega un token de GitHub con permiso de escritura sobre <b>ATR-WEBS/BONFIRETATTOS-CODE</b>. Se guarda sólo en este teléfono.</p>
+        <form class="tarjeta" id="formToken">
+            <input class="campo" id="token" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+            <button class="boton boton--principal" type="submit">Conectar</button>
+        </form>
+        <a class="enlace" id="crearToken" target="_blank" rel="noopener">Crear token en GitHub</a>
+    </div>
+</section>
+
+<section class="vista" id="galeria" hidden>
+    <header class="barra">
+        <button class="barra__btn" id="ordenar" type="button">Ordenar</button>
+        <div class="barra__titulo">Tatuajes</div>
+        <button class="barra__btn barra__btn--icono" id="agregar" type="button" aria-label="Nuevo tatuaje">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+    </header>
+    <div class="contenido">
+        <h1 class="titulo-grande">Tatuajes</h1>
+        <p class="nota" id="ayudaOrden" hidden>Arrastra para cambiar el orden. El primero es el que sale primero en la web.</p>
+        <ul class="cuadricula" id="lista"></ul>
+        <p class="nota nota--centro" id="vacio" hidden>Todavía no hay tatuajes.</p>
+        <div class="pie">
+            <a class="enlace" href="https://atr-webs.github.io/BONFIRETATTOS-WEB/#tatuajes" target="_blank" rel="noopener">Ver la web</a>
+            <button class="enlace" id="desconectar" type="button">Desconectar</button>
+        </div>
+    </div>
+</section>
+
+<section class="vista hoja" id="nuevo" hidden>
+    <header class="barra">
+        <button class="barra__btn" id="cancelarNuevo" type="button">Cancelar</button>
+        <div class="barra__titulo barra__titulo--fijo">Nuevo tatuaje</div>
+        <span class="barra__btn"></span>
+    </header>
+    <div class="contenido">
+        <button class="elegir" id="elegir" type="button">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg>
+            Elegir fotos
+        </button>
+        <div id="seleccion" hidden>
+            <p class="nota">La primera es la miniatura de la web. Toca una foto para usarla como miniatura; arrastra para cambiar el orden en que se ven al abrir el tatuaje.</p>
+            <ul class="cuadricula" id="fotosNuevas"></ul>
+            <button class="boton" id="masFotos" type="button">Agregar más fotos</button>
+        </div>
+        <input id="archivos" type="file" accept="image/*" multiple hidden>
+    </div>
+    <div class="abajo">
+        <button class="boton boton--principal" id="publicar" type="button" disabled>Publicar</button>
+    </div>
+</section>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite" hidden>
+    <span class="aviso__giro" aria-hidden="true"></span>
+    <span class="aviso__texto"></span>
+</div>
+
+<script src="vendor/sortable/Sortable.min.js?v=f3309cf"></script>
+<script type="module" src="js/app.js?v=f3309cf"></script>
+</body>
+</html>
